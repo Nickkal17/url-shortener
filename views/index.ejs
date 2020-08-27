@@ -1,6 +1,8 @@
 <h1> Url Shortener</h1>
 <h3>Shorten your urls completely free, forever...</h3>
-<%- include("error-message.ejs") %>
+<div id="error-msg">
+    <%- include("error-message.ejs") %>
+</div>
 <form action="/" method="POST">
     <div id="url-text">
         <label for="url">Enter your url</label>
@@ -11,4 +13,6 @@
     </div>
     
 </form>
-<%- include("shortened-url-msg.ejs") %>
+<div id="url-msg">
+    <%- include("shortened-url-msg.ejs") %>
+</div>

@@ -31,14 +31,17 @@ app.get("/", (req, res) => {
 
 app.get("/:slug",async (req, res) => {
 
-    try {
-        const url = await Url.findOne({slug: req.params.slug});
-        const urlToRedirect = url.url;
-        res.redirect(urlToRedirect);
+    if(req.params.slug) {
+        try {
+            const url = await Url.findOne({slug: req.params.slug});
+            const urlToRedirect = url.url;
+            res.redirect(urlToRedirect);
+        }
+        catch(e) {
+            console.log(e);
+        }
     }
-    catch(e) {
-        console.log(e);
-    }
+   
 });
 
 app.post("/", async (req, res) => {
