@@ -44,7 +44,7 @@ app.get("/:slug",async (req, res) => {
 app.post("/", async (req, res) => {
     
     let reqUrl = req.body.url;
-    console.log("Into Post");
+
     if(!validateUrl(reqUrl)) {
         console.log("Invalid url");
         res.render("index", {
@@ -56,18 +56,18 @@ app.post("/", async (req, res) => {
     let newSlug = randomString(10, _CHARS);
 
     try {
-        console.log("Before While check");
+
         while(await Url.findOne({slug: newSlug}).exec()) {
             console.log("Already exists");
             newSlug = randomString(10, _CHARS);
         };
-        console.log("Creating Url Model");
+
         const url = new Url({
             url: reqUrl,
             slug: newSlug,
             dateMade: Date.now()
         });
-        console.log("Wait to render");
+
         await url.save();
         res.render("index", {
             shortenedUrl: req.get('host') + "/" + newSlug
