@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
-  "author": "Nikos Kalomoiris, Stamatis Bakolis",
+  "author": "Nikos Kalomoiris",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^14.0.26",
