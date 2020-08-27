@@ -56,12 +56,12 @@ app.post("/", async (req, res) => {
     let newSlug = randomString(10, _CHARS);
 
     try {
-    
+        console.log("Before While check");
         while(await Url.findOne({slug: newSlug}).exec()) {
             console.log("Already exists");
             newSlug = randomString(10, _CHARS);
         };
-
+        console.log("Creating Url Model");
         const url = new Url({
             url: reqUrl,
             slug: newSlug,
